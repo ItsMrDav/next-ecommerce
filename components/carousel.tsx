@@ -32,6 +32,7 @@ export default function Carousel({ products }: Props) {
             alt={currentProduct.name}
             src={currentProduct.images[0]}
             fill
+            sizes="(max-width: 1400px) 100vw, 1400px"
             className="object-cover transition-opacity duration-500 ease-in-out"
           />
         </div>

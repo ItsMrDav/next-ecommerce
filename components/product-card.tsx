@@ -20,6 +20,7 @@ export default function ProductCard({ product }: Props) {
               alt={product.name}
               src={product.images[0]}
               fill
+              sizes="(max-width: 1400px) 100vw, 1400px"
               className="object-cover group-hover:opacity-90 transition-opacity duration-300 rounded-t-lg"
             />
           </div>
