@@ -1,13 +1,29 @@
+'use client';
+
 import Stripe from 'stripe';
 import Image from 'next/image';
 import { Button } from './ui/button';
+import { useCartStore } from '@/store/cart-store';
 
 interface Props {
   product: Stripe.Product;
 }
 
 export default function ProductDetail({ product }: Props) {
+  const { items, addItem, removeItem, clearCart } = useCartStore(); //Comes from Zustend store
   const price = product.default_price as Stripe.Price;
+  const cartItem = items.find(item => item.id === product.id);
+  const quantity = cartItem ? cartItem.quantity : 0;
+
+  const onAddItem = () => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: price.unit_amount as number,
+      imageUrl: product.images ? product.images[0] : null,
+      quantity: 1,
+    });
+  };
 
   return (
     <div className="container flex flex-col md:flex-row items-center">
@@ -16,6 +32,7 @@ export default function ProductDetail({ product }: Props) {
           <Image
             alt={product.name}
             src={product.images[0]}
+            priority
             fill
             sizes="(max-width: 1400px) 100vw, 1400px"
             className="object-cover transition hover:opacity-90 hover:scale-110 duration-300"
@@ -37,11 +54,19 @@ export default function ProductDetail({ product }: Props) {
         )}
 
         <div className="flex items-center space-x-2 md:space-x-4">
-          <Button variant={'outline'} className="rounded-full">
+          <Button
+            variant={'outline'}
+            className="rounded-full"
+            onClick={() => removeItem(product.id)}
+          >
             -
           </Button>
-          <span className="text-lg md:text-xl font-semibold">0</span>
-          <Button variant={'outline'} className="rounded-full">
+          <span className="text-lg md:text-xl font-semibold">{quantity}</span>
+          <Button
+            variant={'outline'}
+            className="rounded-full"
+            onClick={onAddItem}
+          >
             +
           </Button>
         </div>
