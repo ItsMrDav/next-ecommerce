@@ -10,10 +10,11 @@ interface Props {
 }
 
 export default function ProductDetail({ product }: Props) {
-  const { items, addItem, removeItem, clearCart } = useCartStore(); //Comes from Zustend store
-  const price = product.default_price as Stripe.Price;
+  const { items, addItem, removeItem } = useCartStore(); //Comes from Zustend store
   const cartItem = items.find(item => item.id === product.id);
   const quantity = cartItem ? cartItem.quantity : 0;
+
+  const price = product.default_price as Stripe.Price;
 
   const onAddItem = () => {
     addItem({
