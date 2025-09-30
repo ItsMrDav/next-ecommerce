@@ -10,9 +10,7 @@ interface Props {
 }
 
 export default function ProductDetail({ product }: Props) {
-  const { items, addItem, removeItem } = useCartStore(); //Comes from Zustend store
-  const cartItem = items.find(item => item.id === product.id);
-  const quantity = cartItem ? cartItem.quantity : 0;
+  const { addItem } = useCartStore(); //Comes from Zustand store
 
   const price = product.default_price as Stripe.Price;
 
@@ -27,7 +25,7 @@ export default function ProductDetail({ product }: Props) {
   };
 
   return (
-    <div className="container flex flex-col md:flex-row items-center">
+    <section className="container flex flex-col md:flex-row items-center">
       {product.images && product.images[0] && (
         <div className="relative h-90 w-full md:w-5/12 overflow-hidden">
           <Image
@@ -36,7 +34,7 @@ export default function ProductDetail({ product }: Props) {
             priority
             fill
             sizes="(max-width: 1400px) 100vw, 1400px"
-            className="object-cover transition hover:opacity-90 hover:scale-110 duration-300"
+            className="object-cover transition hover:opacity-90 hover:scale-150 md:hover:scale-200 duration-500"
           />
         </div>
       )}
@@ -53,25 +51,14 @@ export default function ProductDetail({ product }: Props) {
             ${(price.unit_amount / 100).toFixed(2)}
           </p>
         )}
-
-        <div className="flex items-center space-x-2 md:space-x-4">
-          <Button
-            variant={'outline'}
-            className="rounded-full"
-            onClick={() => removeItem(product.id)}
-          >
-            -
-          </Button>
-          <span className="text-lg md:text-xl font-semibold">{quantity}</span>
-          <Button
-            variant={'outline'}
-            className="rounded-full"
-            onClick={onAddItem}
-          >
-            +
-          </Button>
-        </div>
+        <Button
+          className="max-w-32 rounded-full border-primary cursor-pointer"
+          variant={'outline'}
+          onClick={onAddItem}
+        >
+          Add to Cart
+        </Button>
       </div>
-    </div>
+    </section>
   );
 }

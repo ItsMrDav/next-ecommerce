@@ -25,7 +25,7 @@ export default function Carousel({ products }: Props) {
   const price = currentProduct.default_price as Stripe.Price;
 
   return (
-    <Card className="container relative overflow-hidden rounded">
+    <Card className="container p-0 relative overflow-hidden rounded">
       {currentProduct.images && currentProduct.images[0] && (
         <div className="relative h-[30rem] w-full">
           <Image

@@ -13,12 +13,12 @@ export default async function Home() {
   const random = Math.floor(Math.random() * 5);
   return (
     <div className="container space-y-6">
-      <section className="mt-6 p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 items-center gap-8  bg-neutral-100 rounded">
+      <section className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 items-center gap-8  bg-neutral-100 rounded">
         <div className="max-w-md mx-auto space-y-4 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight ">
             Welcome to Next Ecommerce
           </h2>
-          <p className="text-neutral-600">
+          <p className="text-muted-foreground">
             Discover the latest products at the best prices.
           </p>
           <Button asChild variant="default" className="rounded-full px-6 py-6">

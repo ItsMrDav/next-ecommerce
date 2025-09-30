@@ -43,7 +43,7 @@ export default function ProductCard({ product }: Props) {
               ${(price.unit_amount / 100).toFixed(2)}
             </p>
           )}
-          <Button className="">View Details</Button>
+          <Button className="cursor-pointer">View Details</Button>
         </CardContent>
       </Card>
     </Link>

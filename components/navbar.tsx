@@ -24,20 +24,33 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow">
-      <div className="container flex items-center justify-between py-4">
-        <Link href="/" className="hover:text-blue-600">
+    <nav className="sticky top-0 z-50 shadow bg-card">
+      <div className="container py-4 flex items-center justify-between">
+        <Link
+          className="text-xl lg:text-2xl font-bold font-[Palatino] tracking-normal"
+          href="/"
+        >
           Next Ecommerce
         </Link>
 
-        <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-blue-600">
+        {/* absolute left-1/2 -translate-x-1/2 FOR making absolute centered*/}
+        <div className="hidden md:flex space-x-6 absolute left-1/2 -translate-x-1/2">
+          <Link
+            className="p-2 rounded-xl tracking-wider hover:bg-accent transition duration-300"
+            href="/"
+          >
             Home
           </Link>
-          <Link href="/products" className="hover:text-blue-600">
+          <Link
+            className="p-2 rounded-xl tracking-wider hover:bg-accent transition duration-300"
+            href="/products"
+          >
             Products
           </Link>
-          <Link href="/checkout" className="hover:text-blue-600">
+          <Link
+            className="p-2 rounded-xl tracking-wider hover:bg-accent transition duration-300"
+            href="/checkout"
+          >
             Checkout
           </Link>
         </div>
@@ -46,15 +59,14 @@ export default function Navbar() {
           <Link className="relative" href="/checkout">
             <ShoppingCart className="h-6 w-6" />
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 grid place-items-center rounded-full bg-red-500 text-xs text-white">
+              <span className="absolute -top-2 -right-2 w-5 h-5 grid place-items-center rounded-full bg-destructive text-xs text-white">
                 {cartCount}
               </span>
             )}
           </Link>
-
           <Button
+            className="md:hidden cursor-pointer"
             variant="ghost"
-            className="md:hidden"
             onClick={() => setMobileOpen(prev => !prev)}
           >
             {mobileOpen ? <X /> : <Menu />}
@@ -64,19 +76,28 @@ export default function Navbar() {
 
       {mobileOpen && (
         <nav className="md:hidden bg-white shadow-md text-center">
-          <ul className="flex flex-col p-4 gap-2">
+          <ul className="flex justify-center p-4 gap-2">
             <li>
-              <Link className="block hover:text-blue-600" href="/">
+              <Link
+                className="p-2 rounded-xl tracking-widest hover:bg-accent transition duration-300"
+                href="/"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link className="block hover:text-blue-600" href="/products">
+              <Link
+                className="p-2 rounded-xl tracking-widest hover:bg-accent transition duration-300"
+                href="/products"
+              >
                 Products
               </Link>
             </li>
             <li>
-              <Link className="block hover:text-blue-600" href="/checkout">
+              <Link
+                className="p-2 rounded-xl tracking-widest hover:bg-accent transition duration-300"
+                href="/checkout"
+              >
                 Checkout
               </Link>
             </li>
