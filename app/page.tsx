@@ -13,7 +13,7 @@ export default async function Home() {
   const random = Math.floor(Math.random() * 5);
   return (
     <div className="container space-y-6">
-      <section className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 items-center gap-8  bg-neutral-100 rounded">
+      <section className="p-8 md:p-16 grid grid-cols-1 md:grid-cols-2 items-center gap-8  bg-black/20 rounded">
         <div className="max-w-md mx-auto space-y-4 text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight ">
             Welcome to Next Ecommerce

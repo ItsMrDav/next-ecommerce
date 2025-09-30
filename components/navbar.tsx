@@ -5,6 +5,7 @@ import { Menu, ShoppingCart, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
+import { ModeToggle } from './mode-toggle';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
@@ -71,11 +72,12 @@ export default function Navbar() {
           >
             {mobileOpen ? <X /> : <Menu />}
           </Button>
+          <ModeToggle />
         </div>
       </div>
 
       {mobileOpen && (
-        <nav className="md:hidden bg-white shadow-md text-center">
+        <nav className="md:hidden bg-card shadow-md text-center">
           <ul className="flex justify-center p-4 gap-2">
             <li>
               <Link
