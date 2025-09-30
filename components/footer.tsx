@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="min-h-52 bg-accent text-accent-foreground border-t">
-      <div className="container py-8 md:py-16 flex justify-between flex-col lg:flex-row gap-8">
-        <div className="space-x-4">
+    <footer className="min-h-52 py-12 bg-accent text-accent-foreground border-t space-y-12">
+      <div className="container py-8  flex flex-col justify-between lg:flex-row items-center lg:items-start gap-8">
+        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 ">
           <Link className="text-muted-foreground hover:text-foreground" href="">
             company
           </Link>
@@ -23,7 +23,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 ">
           <p className="text-muted-foreground">
             Follow us on social media &rarr;
           </p>
@@ -49,7 +49,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <p className="max-w-xs mx-auto flex gap-2 justify-center items-center text-muted-foreground">
+
+      <p className="max-w-xs mx-auto flex gap-2 justify-center items-center text-sm text-muted-foreground">
         &copy; {new Date().getFullYear()} built by
         <Link
           className="hover:text-foreground"

@@ -128,14 +128,15 @@
 @utility container {
   width: 100%; /* ✅ keeps it adapting to viewport */
   margin-inline: auto;
-  padding-inline: 1rem; /* use smaller base padding for narrow screens */
+  padding-inline: 1rem;
 
   @media (min-width: 640px) {
     max-width: 640px;
-    padding-inline: 2rem; /* bump padding at sm+ */
+    padding-inline: 1.5rem;
   }
   @media (min-width: 768px) {
     max-width: 768px;
+    padding-inline: 2rem;
   }
   @media (min-width: 1024px) {
     max-width: 1024px;

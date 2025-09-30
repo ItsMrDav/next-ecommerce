@@ -37,12 +37,12 @@ export default function Carousel({ products }: Props) {
           />
         </div>
       )}
-      <CardContent className="absolute inset-0 flex flex-col justify-center items-center bg-black/20">
-        <CardTitle className="mb-2 text-xs sm:text-lg md:text-3xl font-bold text-white ">
+      <CardContent className="absolute inset-0 flex flex-col justify-center items-center bg-black/20 text-white">
+        <CardTitle className="mb-2 text-xs sm:text-lg md:text-3xl font-bold">
           {currentProduct.name}
         </CardTitle>
         {price && price.unit_amount && (
-          <p className="text-sm md:text-xl text-white">
+          <p className="text-sm md:text-xl">
             ${(price.unit_amount / 100).toFixed(2)}
           </p>
         )}
