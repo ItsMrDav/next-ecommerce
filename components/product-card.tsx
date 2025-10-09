@@ -13,7 +13,7 @@ export default function ProductCard({ product }: Props) {
 
   return (
     <Link href={`/products/${product.id}`} className="block h-full">
-      <Card className="group h-full flex flex-col hover:shadow-2xl transition duration-300 ">
+      <Card className="group h-full flex flex-col shadow-ring hover:shadow-2xl transition duration-300 ">
         {product.images && product.images[0] && (
           <div className="relative h-60 w-full">
             <Image
