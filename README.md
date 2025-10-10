@@ -44,7 +44,6 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 - Node.js (v18 or later)
 - npm, yarn, or pnpm
-- A PostgreSQL database
 
 ### Installation
 
