@@ -55,7 +55,7 @@ export default function Footer() {
         <Link
           className="hover:text-foreground"
           target="_blank"
-          href="https://www.linkedin.com/in/davut-simsek/"
+          href="https://portfolio-davut-simsek.vercel.app/"
         >
           Davut Simsek
         </Link>
